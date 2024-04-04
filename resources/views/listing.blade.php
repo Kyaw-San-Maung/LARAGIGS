@@ -1,4 +1,6 @@
 @extends('layout')
+@include('partials._hero')
+@include('partials._search')
 
 @section('content')
 <h2>
