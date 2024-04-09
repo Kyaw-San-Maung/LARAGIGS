@@ -10,9 +10,10 @@ class ListingController extends Controller
     //show all listings
     public function index()
     {
+
         return view('listings.index', [
             "headings" => "Latest Listings",
-            "posts" => Listing::all()
+            "posts" => Listing::latest()->filter(request(['tag']))->get()
         ]);
     }
 
