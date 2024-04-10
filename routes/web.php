@@ -7,3 +7,5 @@ Route::get('/', [ListingController::class, 'index']);
 
 //single listing
 Route::get('/listing/{listing}', [ListingController::class, 'show']);
+
+Route::get('/listings/create', [ListingController::class, 'create']);
