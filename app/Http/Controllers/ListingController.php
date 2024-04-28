@@ -84,4 +84,11 @@ class ListingController extends Controller
 
         return back()->with("success", "Post created successfully!");
     }
+
+    //delete list
+    public function delete(Listing $listing)
+    {
+        $listing->delete();
+        return redirect('/')->with('success', 'Listing deleted successfully.');
+    }
 }
