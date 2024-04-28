@@ -14,3 +14,12 @@ Route::post('/listings', [ListingController::class, 'store']);
 
 //single listing
 Route::get('/listing/{listing}', [ListingController::class, 'show']);
+
+//Show Edit Form
+Route::get('/listing/{listing}/edit', [ListingController::class, 'edit']);
+
+//Update Listing
+Route::put('/listing/{listing}', [ListingController::class, 'update']);
+
+//Update Listing
+Route::put('/listing/{listing}', [ListingController::class, 'update']);
