@@ -11,10 +11,9 @@ class ListingController extends Controller
     //show all listings
     public function index()
     {
-
         return view('listings.index', [
             "headings" => "Latest Listings",
-            "posts" => Listing::latest()->filter(request(['tag', 'search']))->simplepaginate(6)
+            "posts" => Listing::latest()->filter(request(['tag', 'search']))->simplePaginate(6)
         ]);
     }
 
@@ -35,7 +34,6 @@ class ListingController extends Controller
     //store list
     public function store(Request $request)
     {
-
         $formFields = $request->validate([
             'title' => 'required',
             'company' => ['required', Rule::unique('listings', 'company')],
@@ -58,14 +56,12 @@ class ListingController extends Controller
     // edit list
     public function edit(Listing $listing)
     {
-
         return view('listings.edit', ['listing' => $listing]);
     }
 
     //update list
     public function update(Request $request, Listing $listing)
     {
-
         $formFields = $request->validate([
             'title' => 'required',
             'company' => ['required',],
@@ -82,11 +78,11 @@ class ListingController extends Controller
 
         $listing->update($formFields);
 
-        return back()->with("success", "Post created successfully!");
+        return redirect()->back()->with("success", "Post updated successfully!");
     }
 
     //delete list
-    public function destory(Listing $listing)
+    public function delete(Listing $listing)
     {
         $listing->delete();
 
