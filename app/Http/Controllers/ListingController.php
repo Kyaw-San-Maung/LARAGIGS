@@ -78,7 +78,7 @@ class ListingController extends Controller
 
         $listing->update($formFields);
 
-        return redirect()->back()->with("success", "Post updated successfully!");
+        return redirect('/')->with("success", "Post updated successfully!");
     }
 
     //delete list
