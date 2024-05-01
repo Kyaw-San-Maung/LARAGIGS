@@ -39,4 +39,10 @@ class UserController extends Controller
 
         return redirect('/')->with('success', 'You have been logged out!');
     }
+
+    //show login form
+    public function login()
+    {
+        return view('/users/login');
+    }
 }

@@ -33,3 +33,6 @@ Route::post('/users', [UserController::class, 'store']);
 
 //user logout
 Route::post('/logout', [UserController::class, 'logout']);
+
+//show login Form
+Route::get('/login', [UserController::class, 'login']);
