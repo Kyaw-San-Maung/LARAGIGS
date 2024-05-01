@@ -7,7 +7,7 @@
             <p class="mb-4">Login to your account</p>
         </header>
 
-        <form method="POST" action="/users/login">
+        <form method="POST" action="/users/authenticate">
             @csrf
             <div class="mb-6">
                 <label for="email" class="inline-block text-lg mb-2">Email</label>
@@ -29,7 +29,7 @@
 
             <div class="mb-6">
                 <button type="submit" class="bg-laravel text-white rounded py-2 px-4 hover:bg-black">
-                    Sign Up
+                    Sign In
                 </button>
             </div>
 
