@@ -61,7 +61,7 @@ class ListingController extends Controller
         return redirect('/')->with("success", "Post created successfully!");
     }
 
-    // edit list
+    // show update listing page
     public function edit(Listing $listing)
     {
         return view('listings.edit', ['listing' => $listing]);
@@ -70,6 +70,11 @@ class ListingController extends Controller
     //update list
     public function update(Request $request, Listing $listing)
     {
+        //Making suer Login User is owner
+        if ($listing['user_id'] != auth()->id()) {
+            abort(403, 'Unauthorized Action');
+        }
+
         $formFields = $request->validate([
             'title' => 'required',
             'company' => ['required',],
@@ -92,6 +97,11 @@ class ListingController extends Controller
     //delete list
     public function delete(Listing $listing)
     {
+        //Making suer Login User is owner
+        if ($listing['user_id'] != auth()->id()) {
+            abort(403, 'Unauthorized Action');
+        }
+
         $listing->delete();
 
         return redirect('/')->with('success', 'Listing deleted successfully.');
