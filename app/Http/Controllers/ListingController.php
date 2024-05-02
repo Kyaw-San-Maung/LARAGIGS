@@ -17,6 +17,12 @@ class ListingController extends Controller
         ]);
     }
 
+    //Manage Listing controller
+    public function manage()
+    {
+        return view('listings.manage', ['listings' => auth()->user()->listings()->get()]);
+    }
+
     //show single listing
     public function show(Listing $listing)
     {
